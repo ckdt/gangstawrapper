@@ -31,6 +31,7 @@ body{
     color: #000;
     font-size: 1em;
     line-height: 1.4;
+    overflow-x:hidden;
 }
 
 #the-man {
@@ -158,6 +159,18 @@ body{
     text-align: center;
 }
 
+@media (max-width: 1140px) {
+    #the-info .btn-business{
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    #the-info .btn-business{
+        display: none;
+    }
+}
+
+
 #the-masterplan .btn{
     background-color: rgb(192,156,98);
     font-family: "futura-pt";
@@ -172,29 +185,31 @@ body{
 }
 
 
-body.doing-business #the-masterplan{
-    display: block;
-}
-#the-masterplan{
-    display: none;
-}
-
 #the-masterplan {
 	overflow: scroll;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -60%;
     bottom: 0;
     width: 60%;
     background: rgba(0,0,0,0.85);
     z-index: 2;
     padding: 3% 3% 10%;
+
+    transition: all 0.3s ease-out; 
+    -moz-transition: all 0.3s ease-out; 
+    -webkit-transition: all 0.3s ease-out;
+}
+
+#the-masterplan.doing-business {
+    right: 0;
 }
 
 @media (max-width: 1140px) {
     #the-masterplan {
     	position: relative;
     	top:0;
+        right: 0;
         width: 100%;
         background: rgba(0,0,0,0.95);
     }
@@ -325,5 +340,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 a{
     color:#000;
     border-bottom: 1px solid #ccc;
+}
+
+.square{
+    width:20px;
+    height:20px;
+    background: red;
 }
 
