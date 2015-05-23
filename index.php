@@ -60,7 +60,7 @@
 					<h3 id="result">Let's do business together</h3>
 				</div>
 			</div>
-			<form method="post" action="send.php" id="nbs_form">
+			<form method="post" action="request.php" id="nbs_form">
 				<div class="row">
 					<div class="col s12">
 						<h3>Let's do business together</h3>

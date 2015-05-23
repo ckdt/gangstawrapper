@@ -1,5 +1,6 @@
 <?php 
 /* ##### Handing the form ##### */
+date_default_timezone_set('Etc/UTC');
 require 'lib/PHPMailerAutoload.php';
 
 $to_email = 'ronny@ckdt.nl';
@@ -34,7 +35,8 @@ if (!empty($_POST)) {
 	$planning = (isset($_POST['form_timeline'])) ? $_POST['form_timeline'] : '';
 	$budget = (isset($_POST['form_budget'])) ? $_POST['form_budget'] : '';
 
-	$m = "Dear ".$to_shortname.", \n\n";
+	$m ="<html><body>";
+	$m.= "Dear ".$to_shortname.", \n\n";
 	$m.= "You have a new business request. Yay! \n\n";
 	$m.= "The project is for ".$company.", ".$city.", ".$website." \n";
 	$m.= $name." likes you to start ". $planning." and has a budget of ".$budget."\n";
@@ -44,18 +46,55 @@ if (!empty($_POST)) {
 	$m.= "Please call ".$name." on ".$phone."\nOr reply to this e-mail \n\n";
 	$m.= "You're the man! \n\n";
 	$m.= "Cheers,\n- Ronbot \n\n";
+	$m.="</body></html>";
 	
-	// If form submitted
+	//Create a new PHPMailer instance
 	$mail = new PHPMailer;
-	//$mail->isSendmail();
+
+	//Tell PHPMailer to use SMTP
+	$mail->isSMTP();
+
+	//Enable SMTP debugging
+	// 0 = off (for production use)
+	// 1 = client messages
+	// 2 = client and server messages
+	$mail->SMTPDebug = 0;
+
+	//Ask for HTML-friendly debug output
+	$mail->Debugoutput = 'html';
+
+	//Set the hostname of the mail server
+	$mail->Host = 'smtp.gmail.com';
+
+	//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+	$mail->Port = 587;
+
+	//Set the encryption system to use - ssl (deprecated) or tls
+	$mail->SMTPSecure = 'tls';
+
+	//Whether to use SMTP authentication
+	$mail->SMTPAuth = true;
+
+	//Username to use for SMTP authentication - use full email address for gmail
+	$mail->Username = "lumbrco@gmail.com";
+
+	//Password to use for SMTP authentication
+	$mail->Password = "X3HbP6KcKM";
 
 	//Set who the message is to be sent from
 	$mail->setFrom($email, $name);
 
-	$mail->addReplyTo($to_email, $to_name);
+	//Set who the message is to be sent to
 	$mail->addAddress($to_email, $to_name);
+
+	//Set the subject line
 	$mail->Subject = $subject;
-	$mail->Body = $m;
+
+	//convert HTML into a basic plain-text alternative body
+	$mail->msgHTML($m);
+
+	//Replace the plain text body with one created manually
+	//$mail->AltBody = $m;
 
 	//send the message, check for errors
 	if (!$mail->send()) {
