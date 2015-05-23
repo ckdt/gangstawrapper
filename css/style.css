@@ -62,8 +62,20 @@ body{
 }
 
 #the-info.inactive{
-	overflow: hidden;
-	opacity: 0.5;
+    overflow: hidden;
+    color: #ccc;
+}
+#the-info.inactive a{
+    color: #ccc;
+}
+
+#the-info.inactive .socialize li{
+    opacity: 0.2;
+    color: #000;
+}
+
+#the-info.inactive .btn-business{
+    color: #222;
 }
 
 #the-info {
@@ -272,24 +284,30 @@ input[type="checkbox"].filled-in:checked+label:after {
  color: #fff;
 }
 /* label focus color */
-.input-field input[type=text]:focus + label {
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label {
  color: #fff;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
 textarea.materialize-textarea:focus:not([readonly]) {
  border-bottom: 1px solid #fff;
  box-shadow: 0 1px 0 0 #fff;
 }
 /* valid color */
-.input-field input[type=text].valid {
- border-bottom: 1px solid #fff;
- box-shadow: 0 1px 0 0 #fff;
+.input-field input[type=text].valid,
+.input-field input[type=email].valid,
+textarea.materialize-textarea.valid{
+ border-bottom: 1px solid rgb(192,156,98);
+ box-shadow: 0 0 0 0 rgb(192,156,98);
 }
 /* invalid color */
-.input-field input[type=text].invalid {
- border-bottom: 1px solid #fff;
- box-shadow: 0 1px 0 0 #fff;
+.input-field input[type=text].invalid,
+.input-field input[type=email].invalid,
+textarea.materialize-textarea:focus:not([readonly]).invalid{
+ border-bottom: 1px solid #F44336;
+ box-shadow: 0 1px 0 0 #F44336;
 }
 /* icon prefix focus color */
 .input-field .prefix.active,

@@ -1,3 +1,71 @@
+<?php 
+/* ##### Handing the form ##### */
+require 'lib/PHPMailerAutoload.php';
+
+$to_email = 'ronny@ckdt.nl';
+$to_shortname = 'Ronny';
+$to_name = 'Ronny Wieckardt';
+$subject = 'New Business Request';
+
+if (!empty($_POST)) {
+
+	$name = (isset($_POST['form_name'])) ? $_POST['form_name'] : '';
+	$email = (isset($_POST['form_email'])) ? $_POST['form_email'] : '';
+	$phone = (isset($_POST['form_phone'])) ? $_POST['form_phone'] : '';
+
+	$company = (isset($_POST['form_company'])) ? $_POST['form_company'] : '';
+	$city = (isset($_POST['form_city'])) ? $_POST['form_city'] : '';
+	$website = (isset($_POST['form_website'])) ? $_POST['form_website'] : '';
+
+	$years = (isset($_POST['form_years'])) ? $_POST['form_years'] : '';
+	$target = (isset($_POST['form_target'])) ? $_POST['form_target'] : '';
+	$description = (isset($_POST['form_description'])) ? $_POST['form_description'] : '';
+	$competition = (isset($_POST['form_competition'])) ? $_POST['form_competition'] : '';
+
+	$types = array();
+
+	$type1 = (isset($_POST['form_type_webdesign'])) ? array_push($types, 'webdesign') : '';
+	$type2 = (isset($_POST['form_type_appdesign'])) ? array_push($types, 'appdesign') : '';
+	$type3 = (isset($_POST['form_type_consulting'])) ? array_push($types, 'consulting') : '';
+	$type4 = (isset($_POST['form_type_other'])) ? array_push($types, 'other') : '';
+
+	$types_string = implode(", ", $types);
+
+	$planning = (isset($_POST['form_timeline'])) ? $_POST['form_timeline'] : '';
+	$budget = (isset($_POST['form_budget'])) ? $_POST['form_budget'] : '';
+
+	$m = "Dear ".$to_shortname.", \n\n";
+	$m.= "You have a new business request. Yay! \n\n";
+	$m.= "The project is for ".$company.", ".$city.", ".$website." \n";
+	$m.= $name." likes you to start ". $planning." and has a budget of ".$budget."\n";
+	$m.= "They've been in business for ".$years." year(s) and are targeting ".$target."\n\n";
+	$m.= "Description:\n".$description."\n";
+	$m.= "Competition:\n".$competition."\n\n";
+	$m.= "Please call ".$name." on ".$phone."\nOr reply to this e-mail \n\n";
+	$m.= "You're the man! \n\n";
+	$m.= "Cheers,\n- Ronbot \n\n";
+	echo $m;
+	
+	// If form submitted
+	$mail = new PHPMailer;
+	$mail->isSendmail();
+
+	//Set who the message is to be sent from
+	$mail->setFrom($email, $name);
+
+	$mail->addReplyTo($to_email, $to_name);
+	$mail->addAddress($to_email, $to_name);
+	$mail->Subject = $subject;
+	$mail->Body = $m;
+
+	//send the message, check for errors
+	if (!$mail->send()) {
+	    echo "Mailer Error: " . $mail->ErrorInfo;
+	} else {
+	    echo "Message sent!";
+	}
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -52,6 +120,7 @@
 			<small><a href="#">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
 		</div>
 		<div id="the-masterplan">
+			<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 				<div class="row">
 					<div class="col s12">
 						<h3>Let's do business together</h3>
@@ -64,29 +133,29 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12 m6 l4">
-						<input id="form_name" type="text" class="validate">
+						<input id="form_name" name="form_name" type="text" class="validate" required>
 						<label for="form_name">Name</label>
 					</div>
 					<div class="input-field col s12 m6 l4">
-						<input id="form_email" type="text" class="validate">
+						<input id="form_email" name="form_email" type="email" class="validate" required>
 						<label for="form_email">E-mail</label>
 					</div>
 					<div class="input-field col s12 m6 l4">
-						<input id="form_phone" type="text" class="validate">
+						<input id="form_phone" name="form_phone" type="text" class="validate">
 						<label for="form_phone">Phone</label>
 					</div>
 				</div>
 				<div class="row last">
 					<div class="input-field col s12 m6 l4">
-						<input id="form_company" type="text" class="validate">
+						<input id="form_company" name="form_company" type="text" class="validate">
 						<label for="form_company">Company</label>
 					</div>
 					<div class="input-field col s12 m6 l4">
-						<input id="form_city" type="text" class="validate">
+						<input id="form_city" name="form_city" type="text" class="validate">
 						<label for="form_city">City</label>
 					</div>
 					<div class="input-field col s12 m6 l4">
-						<input id="form_website" type="text" class="validate">
+						<input id="form_website" name="form_website" type="text" class="validate">
 						<label for="form_website">Website</label>
 					</div>
 				</div>
@@ -97,23 +166,23 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s6 m6 l4">
-						<input id="form_years" type="text" class="validate">
+						<input id="form_years" name="form_years" type="text" class="validate">
 						<label for="form_years">Years in business</label>
 					</div>
 					<div class="input-field col s6 m6 l4">
-						<input id="form_target" type="text" class="validate">
+						<input id="form_target" name="form_target" type="text" class="validate">
 						<label for="form_target">Target Audience</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12 m12 l8">
-						<textarea id="company_description" class="materialize-textarea"></textarea>
-						<label for="company_description">Company Description</label>
+						<textarea id="form_description" name="form_description" class="materialize-textarea validate"></textarea>
+						<label for="form_description">Company Description</label>
 					</div>
 				</div>
 				<div class="row last">
 					<div class="input-field col s12 m12 l8">
-						<textarea id="form_competition" class="materialize-textarea"></textarea>
+						<textarea id="form_competition" name="form_competition" class="materialize-textarea validate"></textarea>
 						<label for="form_competition">Competition</label>
 					</div>
 				</div>
@@ -125,52 +194,52 @@
 				<div class="row last">
 					<div class="input-field check col s6 m3 l3">
 						<div>
-							<input type="checkbox" class="filled-in" id="form_type_webdesign" />
+							<input type="checkbox" class="filled-in" id="form_type_webdesign" name="form_type_webdesign" />
 							<label for="form_type_webdesign">Webdesign</label>
 						</div>
 					</div>
 					<div class="input-field check col s6 m3 l3">
 						<div>
-							<input type="checkbox" class="filled-in" id="form_type_appdesign" />
+							<input type="checkbox" class="filled-in" id="form_type_appdesign" name="form_type_appdesign" />
 							<label for="form_type_appdesign">App Design</label>
 						</div>
 					</div>
 					<div class="input-field check col s6 m3 l3">
 						<div>
-							<input type="checkbox" class="filled-in" id="form_type_consulting" />
+							<input type="checkbox" class="filled-in" id="form_type_consulting" name="form_type_consulting" />
 							<label for="form_type_consulting">Consulting</label>
 						</div>
 					</div>
 					<div class="input-field check col s6 m3 l3">
 						<div>
-							<input type="checkbox" class="filled-in" id="form_type_other" />
+							<input type="checkbox" class="filled-in" id="form_type_other" name="form_type_other" />
 							<label for="form_type_other">Other</label>
 						</div>
 					</div>
 				</div>
 				<div class="row last">
 					<div class="input-field col s12 m6 l6">
-						<select>
+						<select id="form_timeline" name="form_timeline">
 							<option value="" disabled selected>When do you want to start?</option>
-							<option value="1">This month</option>
-							<option value="2">Next month</option>
-							<option value="3">Within two months</option>
-							<option value="4">Within three months</option>
-							<option value="5">We haven't set a timeline yet</option>
+							<option value="this month">This month</option>
+							<option value="next month">Next month</option>
+							<option value="within two months">Within two months</option>
+							<option value="within three months">Within three months</option>
+							<option value="undisclosed">We haven't set a timeline yet</option>
 						</select>
 						<label>Timeline</label>
 					</div>
 					<div class="input-field col s12 m6 l6">
-						<select>
+						<select id="form_budget" name="form_budget">
 							<option value="" disabled selected>What is your budget?</option>
-							<option value="1">&lt; &euro;5.000</option>
-							<option value="2">&euro;5.000 &mdash; &euro;10.000</option>
-							<option value="2">&euro;10.000 &mdash; &euro;15.000</option>
-							<option value="2">&euro;15.000 &mdash; &euro;30.000</option>
-							<option value="2">&euro;30.000 &mdash; &euro;50.000</option>
-							<option value="2">&euro;50.000 &mdash; &euro;75.000</option>
-							<option value="2">&euro;75.000 &mdash; &euro;100.000</option>
-							<option value="2">&gt; &euro;100.000</option>
+							<option value="&lt; &euro;5.000">&lt; &euro;5.000</option>
+							<option value="&euro;5.000 &mdash; &euro;10.000">&euro;5.000 &mdash; &euro;10.000</option>
+							<option value="&euro;10.000 &mdash; &euro;15.000">&euro;10.000 &mdash; &euro;15.000</option>
+							<option value="&euro;15.000 &mdash; &euro;30.000">&euro;15.000 &mdash; &euro;30.000</option>
+							<option value="&euro;30.000 &mdash; &euro;50.000">&euro;30.000 &mdash; &euro;50.000</option>
+							<option value="&euro;50.000 &mdash; &euro;75.000">&euro;50.000 &mdash; &euro;75.000</option>
+							<option value="&euro;75.000 &mdash; &euro;100.000">&euro;75.000 &mdash; &euro;100.000</option>
+							<option value="&gt; &euro;100.000">&gt; &euro;100.000</option>
 						</select>
 						<label>Budget</label>
 					</div>
@@ -188,10 +257,10 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('select').material_select();
-
 			$('.btn-business').click(function(e) {
-				 e.preventDefault();
+				e.preventDefault();
 				$('#the-masterplan').toggleClass( "doing-business" );
+				$('#the-info').toggleClass( "inactive" );
 				if($('#the-masterplan').hasClass("doing-business")){
 					$(this).html('Nevermind  <i class="mdi-navigation-close"></i>');
 				}else{
