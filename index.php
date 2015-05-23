@@ -52,11 +52,18 @@
 			<small><a href="#">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
 		</div>
 		<div id="the-masterplan">
+			<div class="sender">
+				<svg width='116px' height='116px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(0 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(24 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.06666666666666667s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(48 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.13333333333333333s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(72 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.2s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(96 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.26666666666666666s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(120 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(144 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(168 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4666666666666667s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(192 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5333333333333333s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(216 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(240 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(264 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.7333333333333333s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(288 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(312 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8666666666666667s' repeatCount='indefinite'/></rect><rect  x='48' y='47.5' width='4' height='5' rx='0' ry='0' fill='#ffffff' transform='rotate(336 50 50) translate(0 -20)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9333333333333333s' repeatCount='indefinite'/></rect></svg>
+			</div>
+			<div class="sender-result row">
+				<div class="col s12">
+					<h3 id="result">Let's do business together</h3>
+				</div>
+			</div>
 			<form method="post" action="send.php" id="nbs_form">
 				<div class="row">
 					<div class="col s12">
 						<h3>Let's do business together</h3>
-						<div id="result"></div>
 					</div>
 				</div>
 				<div class="row">
@@ -190,27 +197,52 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('select').material_select();
+
 			$('.btn-business').click(function(e) {
 				e.preventDefault();
 				$('#the-masterplan').toggleClass( "doing-business" );
 				$('#the-info').toggleClass( "inactive" );
 				if($('#the-masterplan').hasClass("doing-business")){
-					$(this).html('Nevermind');
+					$(this).empty().html('Nevermind');
 				}else{
-					$(this).html("Let's do business together");
+					$(this).empty().html("Let's do business together");
 				}
 			});
 
 			$('#nbs_form').submit(function(e) {
 				e.preventDefault();
+
+				// Disable button
+				$('#form_submit').attr("disabled", true);
+				$('#nbs_form').fadeOut().delay(400);
+				$('.sender').fadeIn().delay(400);
+				
 				var $form = $( this );
 				var url = $form.attr( "action" );
-				$('#the-masterplan').addClass("sending");
-
 				var posting = $.post( url, $form.serialize() );
 				posting.done(function( data ) {
-					$( "#result" ).html(data);
-					$('#the-masterplan').removeClass("sending");
+					$('.sender').fadeOut();
+					
+					$( "#result" ).html(data).delay(800);
+					$( ".sender-result" ).fadeIn().delay(800);
+					
+
+					$( '#nbs_form' ).each(function(){
+   				 		this.reset();
+					});
+
+					setTimeout(function() {
+						// Toggle Form
+						$('#the-masterplan').removeClass("doing-business");
+						$('#the-info').removeClass("inactive");
+						$('.btn-business').empty().html("Let's do business together");
+
+						// Re-enable Form
+						$('#result').empty();
+						$('#nbs_form').fadeIn("slow").delay(3000);
+						$('#form_submit').attr("disabled", false);
+					}, 8000);
+
 				});
 			});
 		});

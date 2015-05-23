@@ -59,9 +59,9 @@ if (!empty($_POST)) {
 
 	//send the message, check for errors
 	if (!$mail->send()) {
-	    echo '<div class="error">Mailer Error: '.$mail->ErrorInfo.' </div>';
+	    echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
 	} else {
-	    echo '<div class="ok">Message sent!</div>';
+	    echo '<span class="ok">Thank you for your Business.</span>';
 	}
 }
 ?>

@@ -195,7 +195,6 @@ body{
     width: 100%;
 }
 
-
 #the-masterplan {
 	overflow: scroll;
     position: absolute;
@@ -216,8 +215,21 @@ body{
     right: 0;
 }
 
+#the-masterplan .sender-result{
+    display: none;
+}
+
+#the-masterplan .sender{
+    display: none;
+    position: absolute;
+    top:50%;
+    margin-top: -58px;
+    left:50%;
+    margin-left: -58px;
+}
+
 #the-masterplan.doing-business.sending{
-    background: red;
+    background: url('http://media.giphy.com/media/Sk3sDOSEeBQFa/giphy.gif') no-repeat center center;
 }
 
 @media (max-width: 1140px) {
