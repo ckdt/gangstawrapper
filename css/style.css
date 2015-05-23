@@ -216,6 +216,10 @@ body{
     right: 0;
 }
 
+#the-masterplan.doing-business.sending{
+    background: red;
+}
+
 @media (max-width: 1140px) {
     #the-masterplan {
     	position: relative;
