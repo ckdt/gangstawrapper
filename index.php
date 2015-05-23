@@ -115,7 +115,7 @@ if (!empty($_POST)) {
 			<ul class="socialize">
 				<li><a href="#"> <img src="img/icons/socicon_twitter.svg" class="ico" width="16">@rwieckardt </a></li>
 				<li><a href="#"> <img src="img/icons/socicon_linkedin.svg" class="ico" width="14" > rwieckardt </a></li>
-				<li><a href="#"> <img src="img/icons/socicon_behance.svg" class="ico" width="17" >selected work </a></li>
+				<li><a href="#"> <img src="img/icons/socicon_behance.svg" class="ico" width="16" >selected work </a></li>
 			</ul>
 			<small><a href="#">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
 		</div>
@@ -262,7 +262,7 @@ if (!empty($_POST)) {
 				$('#the-masterplan').toggleClass( "doing-business" );
 				$('#the-info').toggleClass( "inactive" );
 				if($('#the-masterplan').hasClass("doing-business")){
-					$(this).html('Nevermind  <i class="mdi-navigation-close"></i>');
+					$(this).html('Nevermind');
 				}else{
 					$(this).html("Let's do business together");
 				}
