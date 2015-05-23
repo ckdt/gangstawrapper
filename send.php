@@ -47,7 +47,7 @@ if (!empty($_POST)) {
 	
 	// If form submitted
 	$mail = new PHPMailer;
-	$mail->isSendmail();
+	//$mail->isSendmail();
 
 	//Set who the message is to be sent from
 	$mail->setFrom($email, $name);
