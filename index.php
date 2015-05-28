@@ -34,7 +34,7 @@
 			<h5>Contact</h5>
 			<address>
 				Ronny Wieckardt
-				<a href="#">hi@ronnywieckardt.nl</a>
+				<a href="mailto:hi@ronnywieckardt.nl">hi@ronnywieckardt.nl</a>
 				+31(0)6 18112260 
 			</address>
 			<address>
@@ -45,9 +45,9 @@
 			</address>
 			<div class="cf"></div>
 			<ul class="socialize">
-				<li><a href="#"> <img src="img/icons/socicon_twitter.svg" class="ico" width="16">@rwieckardt </a></li>
-				<li><a href="#"> <img src="img/icons/socicon_linkedin.svg" class="ico" width="14" > rwieckardt </a></li>
-				<li><a href="#"> <img src="img/icons/socicon_behance.svg" class="ico" width="16" >selected work </a></li>
+				<li><a href="http://www.twitter.com/rwieckardt" target="_blank"> <img src="img/icons/socicon_twitter.svg" class="ico" width="16">@rwieckardt </a></li>
+				<li><a href="http://nl.linkedin.com/in/rwieckardt" target="_blank"> <img src="img/icons/socicon_linkedin.svg" class="ico" width="14" > rwieckardt </a></li>
+				<li><a href="https://www.behance.net/hellomynameisronny" target="_blank"> <img src="img/icons/socicon_behance.svg" class="ico" width="16" >selected work </a></li>
 			</ul>
 			<small><a href="#">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
 		</div>
