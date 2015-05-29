@@ -7,11 +7,12 @@
 		<meta name="description" content="Online portfolio of Ronny Wieckardt. Interactive Designer based in Rotterdam, The Netherlands.">
 		<meta name="author" content="Ronny Wieckardt">
 		
-		<meta property="og:image" content="http://ronnywieckardt.nl/img/fav_icon_512.gif"/> 
+		<meta property="og:image" content="http://ronnywieckardt.nl/img/favicons/favicon-1024.png"/> 
 		<meta property="og:title" content="Ronny Wieckardt &mdash; Web / App &amp; Interaction Design &mdash; Rotterdam, The Netherlands."/>
 		<meta property="og:url" content="http://ronnywieckardt.nl"/>
 		<meta property="og:site_name" content="Online portfolio of Ronny Wieckardt."/>
 		<meta property="og:type" content="website"/>
+		<meta property="og:description" content="Check out the work of Interaction &amp; Digital Design Director, Ronny Wieckardt"/>
 
 		<link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
@@ -22,10 +23,12 @@
 		<link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+
 		<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
 		<link rel="icon" type="image/png" href="img/favicons/android-chrome-192x192.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="manifest" href="img/favicons/manifest.json">
 		<meta name="msapplication-TileColor" content="#c09c62">
@@ -47,7 +50,7 @@
 			<h1>Hello, My name is Ronny Wieckardt. I’m an interaction &amp; visual interface designer from Rotterdam, The Netherlands. I’m a big fan of user centered design. With passion for minimal design, branding and technology I aim to create high quality user friendly products. </h1>
 			
 			<h5>Studio</h5>
-			<p>I work as a freelance designer from my studio in the centre of Rotterdam. I approach each project differently, based on its needs. For complexer projects I assemble a team of creative producers, from my network. Together we help you achieve your goals. My studio partner Maarten Mieras and I are currently thinking of new ways to do awesome projects. You should check out his work over here.</p>
+			<p>I work as a freelance designer from my studio in the centre of Rotterdam. I approach each project differently, based on its needs. For complexer projects I assemble a team of creative producers, from my network. Together we help you achieve your goals. My studio partner Maarten Mieras and I are currently thinking of new ways to do awesome projects. <!--You should check out his work over here.--></p>
 
 			<h5>Skills</h5>
 			<p>user interface design, user experience design, interaction design, (responsive) website design, mobile app design, prototyping, design direction, creative concept development, visual design, branding, front-end development, WordPress development</p>
@@ -72,7 +75,7 @@
 				<li><a href="http://nl.linkedin.com/in/rwieckardt" target="_blank"> <img src="img/icons/socicon_linkedin.svg" class="ico" width="14" > rwieckardt </a></li>
 				<li><a href="https://www.behance.net/hellomynameisronny" target="_blank"> <img src="img/icons/socicon_behance.svg" class="ico" width="16" >selected work </a></li>
 			</ul>
-			<small><a href="#">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
+			<small><a href="http://ckdt.nl/algemene_voorwaarden.pdf">Terms and Conditions</a>, BTW: NL173837839B02, BANK: NL59 RABO 0159415292, KVK: 51217805</small>
 		</div>
 		<div id="the-masterplan">
 			<div class="sender">
@@ -269,6 +272,15 @@
 				});
 			});
 		});
+	</script>
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63495031-1', 'auto');
+	ga('send', 'pageview');
 	</script>
 </body>
 </html>

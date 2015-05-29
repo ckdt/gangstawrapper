@@ -43,12 +43,12 @@ if (!empty($_POST)) {
 	$mail->isSMTP();
 
 	// Debug (set to 0 live)
-	$mail->SMTPDebug = 0;
+	$mail->SMTPDebug = 2;
 	$mail->Debugoutput = 'html';
 
-	$mail->Host = 'www58.totaalholding.nl';
-	$mail->Port = 465;
-	$mail->SMTPSecure = 'ssl';
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = 587;
+	$mail->SMTPSecure = 'tls';
 	$mail->SMTPAuth = true;
 
 	// E-mail account
@@ -89,32 +89,8 @@ if (!empty($_POST)) {
 
 	//send the message, check for errors
 	if (!$mail->send()) {
-		// First mail fails //
-	    // echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
+	    echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
 	} else {
-		// First mail success //
-		// echo '<span class="ok">Thank you for your Business.</span>';
-	    $mail->ClearAddresses();
-	  	$mail->ClearAttachments();
-
-		$mail->setFrom($gmail_username , $to_name);
-		$mail->addReplyTo($to_email, $to_name);
-	  	$mail->addAddress($from_email , $from_name);
-		$mail->Subject = $subject_thanks;
-		
-		$t = file_get_contents('lib/templates/mail-thanks.html');
-		$t = str_replace('%name%', $from_name, $t);
-
-		$mail->msgHTML($t, dirname(__FILE__));
-
-	  	if (!$mail->send()) {
-	  		// Second mail fails //
-	    	echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
-		} else {
-			// Second mail success //
-	    	echo '<span class="ok">Thank you for your Business.</span>';
-		}
-
-
+	    echo '<span class="ok">Thank you for your Business.</span>';
 	}
 }
