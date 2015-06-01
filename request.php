@@ -82,6 +82,7 @@ if (!empty($_POST)) {
 	$m = str_replace('%types_string%', $types_string, $m);
 	$m = str_replace('%planning%', $planning, $m);
 	$m = str_replace('%budget%', $budget, $m);
+	$m = str_replace('%from_site%', $to_site, $m);
 	//$m_txt = strip_tags($m);
 
 	$mail->msgHTML($m, dirname(__FILE__));
@@ -90,7 +91,7 @@ if (!empty($_POST)) {
 	//send the message, check for errors
 	if (!$mail->send()) {
 		// First mail fails //
-	    // echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
+	    echo '<span class="error">Mailer Error: '.$mail->ErrorInfo.' </span>';
 	} else {
 		// First mail success //
 		// echo '<span class="ok">Thank you for your Business.</span>';
@@ -104,6 +105,8 @@ if (!empty($_POST)) {
 		
 		$t = file_get_contents('lib/templates/mail-thanks.html');
 		$t = str_replace('%name%', $from_name, $t);
+		$t = str_replace('%from_person%', $to_name, $t);
+		$t = str_replace('%from_site%', $to_site, $t);
 
 		$mail->msgHTML($t, dirname(__FILE__));
 

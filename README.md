@@ -16,3 +16,5 @@ And put the following code in `settings.mailer.php` file
 	$subject = 'YOUR_SUBJECT';
 	
 Make sure `lib/settings.mailer.php` is mentioned in the `.gitignore` file in order for you to not upload your credentials to github
+
+used premailer.dialect.ca for mail-template compiling
