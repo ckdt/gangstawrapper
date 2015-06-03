@@ -50,7 +50,7 @@
 			<h1>Hello, My name is Ronny Wieckardt. I’m an interaction &amp; visual interface designer from Rotterdam, The Netherlands. I’m a big fan of user centered design. With passion for minimal design, branding and technology I aim to create high quality user friendly products. </h1>
 			
 			<h5>Studio</h5>
-			<p>I work as a freelance designer from my studio in the centre of Rotterdam. I approach each project differently, based on its needs. For complexer projects I assemble a team of creative producers, from my network. Together we help you achieve your goals. My studio partner Maarten Mieras and I are currently thinking of new ways to do awesome projects. <!--You should check out his work over here.--></p>
+			<p>I work as a freelance designer from my studio in the centre of Rotterdam. I approach each project differently, based on its needs. For complexer projects I assemble a team of creative producers, from my network. Together we help you achieve your goals. My studio partner <a href="http://maartenmieras.nl" target="_blank">Maarten Mieras</a> and I are currently thinking of new ways to do awesome projects. <!--You should check out his work over here.--></p>
 
 			<h5>Skills</h5>
 			<p>user interface design, user experience design, interaction design, (responsive) website design, mobile app design, prototyping, design direction, creative concept development, visual design, branding, front-end development, WordPress development</p>

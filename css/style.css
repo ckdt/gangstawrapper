@@ -41,7 +41,7 @@ body{
     right: 0;
     bottom: 0;
     width: 60%;
-    background: url('../img/photo-1421809313281-48f03fa45e9f.jpg') no-repeat center center;
+    background: url('../img/ronny-fc.jpg') no-repeat center center;
     background-size: cover;	
     z-index: 1;
 }
@@ -168,6 +168,18 @@ body{
     color:#151515;
     width: 368px;
     text-align: center;
+    -webkit-transition: all .15s cubic-bezier(.33,.16,.66,1);
+    transition: all .15s cubic-bezier(.33,.16,.66,1);
+}
+
+#the-info .btn-business:hover{
+    background: #000;
+    border-color: #000;
+    color:rgb(192,156,98);
+}
+
+#the-info .btn-business:active{
+    background: rgb(192,156,98);
 }
 
 @media (max-width: 1140px) {
@@ -359,7 +371,13 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     line-height: 20px;
 }
 .socialize li a{
-    color:#151515;
+    color:#333;
+    font-weight: bold;
+    border: 0;
+}
+
+.socialize li a:hover{
+    color:#000;
     font-weight: bold;
     border: 0;
 }
@@ -373,6 +391,14 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 a{
     color:#151515;
     border-bottom: 1px solid #ccc;
+    -webkit-transition: all .15s cubic-bezier(.33,.16,.66,1);
+    transition: all .15s cubic-bezier(.33,.16,.66,1);
+}
+
+
+a:hover{
+    color:#151515;
+    border-bottom: 2px solid #333;
 }
 
 .square{
