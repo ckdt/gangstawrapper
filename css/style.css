@@ -407,3 +407,18 @@ a:hover{
     background: red;
 }
 
+.photo-credits{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.2);
+    color: #ccc;
+    padding: 5px 10px;
+    margin: 10px;
+    font-size: 0.8em;
+}
+.photo-credits a{
+    color:#ccc;
+    border-bottom: 0;
+}
+

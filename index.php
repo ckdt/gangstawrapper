@@ -45,7 +45,9 @@
 </head>
 <body>
 	<div id="gangsta-wrapper">
-		<div id="the-man"></div>
+		<div id="the-man">
+			<div class="photo-credits">Photo by <a href="http://500watt.nl" target="_blank">Casper Rila</a></div>
+		</div>
 		<div id="the-info">
 			<h1>Hello, My name is Ronny Wieckardt. I’m an interaction &amp; visual interface designer from Rotterdam, The Netherlands. I’m a big fan of user centered design. With passion for minimal design, branding and technology I aim to create high quality user friendly products. </h1>
 			
