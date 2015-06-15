@@ -42,6 +42,16 @@
 		<script>try{Typekit.load();}catch(e){}</script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-63495031-1', 'auto');
+		ga('send', 'pageview');
+		</script>
 </head>
 <body>
 	<div id="gangsta-wrapper">
@@ -57,7 +67,7 @@
 			<h5>Skills</h5>
 			<p>user interface design, user experience design, interaction design, (responsive) website design, mobile app design, prototyping, design direction, creative concept development, visual design, branding, front-end development, WordPress development</p>
 
-			<a href="#the-masterplan" class="btn-business">Let's do business together</a>
+			<a href="#the-masterplan" class="btn-business btn-track" data-track-cat="new business" data-track-action="form opened" >Let's do business together</a>
 
 			<h5>Contact</h5>
 			<address>
@@ -214,7 +224,7 @@
 				</div>
 				<div class="row last">
 					<div class="col s6">
-						<button class="btn btn-large waves-effect waves-light" type="submit" name="action" id="form_submit">Submit</button>
+						<button class="btn btn-large waves-effect waves-light btn-track" type="submit" name="action" id="form_submit" data-track-cat="new business" data-track-action="form sent">Submit</button>
 					</div>
 				</div>
 		</div>
@@ -222,6 +232,18 @@
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$( ".btn-track" ).each(function(index) {
+			$(this).on("click", function(){
+				var cat =  $(this).attr('data-track-cat');
+				var action = $(this).attr('data-track-action');
+
+				console.log(cat,action);
+				ga('send', 'event', cat , action);
+			});
+		});
+	</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('select').material_select();
@@ -274,15 +296,6 @@
 				});
 			});
 		});
-	</script>
-	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-63495031-1', 'auto');
-	ga('send', 'pageview');
 	</script>
 </body>
 </html>
