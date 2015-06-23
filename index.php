@@ -4,7 +4,7 @@
 		<meta charset="utf-8"/>
 		<title>Ronny Wieckardt &mdash; Web / App &amp; Interaction Design &mdash; Rotterdam, The Netherlands</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Online portfolio of Ronny Wieckardt. Interactive Designer based in Rotterdam, The Netherlands.">
+		<meta name="description" content="The portfolio of Ronny Wieckardt. Interactive Designer based in Rotterdam, The Netherlands. Specialized in user centered; digital, interaction, web and app design.">
 		<meta name="author" content="Ronny Wieckardt">
 		
 		<meta property="og:image" content="http://ronnywieckardt.nl/img/favicons/favicon-1024.png"/> 
@@ -233,20 +233,17 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript">
-		$( ".btn-track" ).each(function(index) {
-			$(this).on("click", function(){
-				var cat =  $(this).attr('data-track-cat');
-				var action = $(this).attr('data-track-action');
-
-				console.log(cat,action);
-				ga('send', 'event', cat , action);
-			});
-		});
-	</script>
-
-	<script type="text/javascript">
 		$(document).ready(function() {
 			$('select').material_select();
+
+			$( ".btn-track" ).each(function(index) {
+				$(this).on("click", function(){
+					var cat =  $(this).attr('data-track-cat');
+					var action = $(this).attr('data-track-action');
+					console.log(cat,action);
+					ga('send', 'event', cat , action);
+				});
+			});
 
 			$('.btn-business').click(function(e) {
 				e.preventDefault();
